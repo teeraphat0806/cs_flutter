@@ -28,22 +28,6 @@ class MyApp extends StatelessWidget {
       ),
       
       home: Scaffold(appBar: AppBar(centerTitle: true,title: Image.asset('assets/images/pealogo.png',width: 100),),
-      /*
-      body: Column(children: [
-        const Text("Gandalf AK47",style: TextStyle(fontSize: 28,fontWeight: FontWeight.w900),),
-        Image.network('https://preview.redd.it/gandalf-holding-an-ak-v0-ojx9hrnq585b1.jpg?width=1080&crop=smart&auto=webp&s=15b127a28b70e7e2e1a689424517e875753691f8'),
-        Row(
-          children: [
-            ElevatedButton(onPressed: () {debugPrint('clicked button');}, child: const Text("PRESSED")),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.favorite),iconSize: 40,color: Colors.yellow,)
-          ],
-        ),
-        FloatingActionButton(onPressed: (){debugPrint('Hello');},child: const Icon(Icons.shopping_cart),),
-        Image.asset("assets/images/gandalfak.jpg"),
-        
-      ],
-      */
-
       body: const MyHomePage(title: "hello"),
         
       )
@@ -78,82 +62,117 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           
           children: <Widget>[
-            Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0)),
-            Center(child: Image.asset('assets/images/pealogo.png',width: 150)),
-            Center(child: Text("ขอบคุณที่ใช้บริการ",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 20),)),
-            Center(child: Text("เรายินดีที่ได้เป็นส่วนหนึ่งในการเดินทางของคุณ",style: TextStyle(fontWeight: FontWeight.w100,fontSize: 18),)),
-            Padding(padding: EdgeInsets.fromLTRB(0, 70, 0, 0)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [ 
-                Padding(padding: EdgeInsets.fromLTRB(10, 0, 0, 0)),
-                Text("สรุปรายละเอียดการชาร์จ",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 25),),
-                
-              ],
-            ),
-            Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+            Center(
+                child: Column(
                   children: [
-                    Padding(padding: EdgeInsets.fromLTRB(10, 80, 0, 0)),
-                    Icon(Icons.calendar_month,size: 30,),
-                    Text("วันที่ชาร์จ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w100),),
-                    Padding(padding: EdgeInsets.fromLTRB(70,0, 100, 0)),
-                    Text(datas.date_now,style: TextStyle(fontSize: 20,fontWeight: FontWeight.w100)),
+                    const SizedBox(height: 40,),
+                    Image.asset('assets/images/pealogo.png', width: 150),
+                    const SizedBox(height: 16),
+                    const Text(
+                      "ขอบคุณที่ใช้บริการ",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700, fontSize: 20),
+                    ),
+                    const Text(
+                      "เรายินดีที่ได้เป็นส่วนหนึ่งในการเดินทางของคุณ",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w100, fontSize: 18),
+                    ),
                   ],
-            ),
-            Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(padding: EdgeInsets.fromLTRB(10, 80, 0, 0)),
-                    Icon(Icons.ev_station_rounded,size: 30,),
-                    Text("สถานีชาร์จ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w100),),
-                    Padding(padding: EdgeInsets.fromLTRB(50,0, 0, 0)),
-                    Text(datas.station,style: TextStyle(fontSize: 20,fontWeight: FontWeight.w100),),
-                  ],
-            ),
-             Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(padding: EdgeInsets.fromLTRB(10, 50, 0, 0)),
-                    Icon(Icons.power,size: 30,),
-                    Text("ประเภทหัวชาร์จ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w100),),
-                    Padding(padding: EdgeInsets.fromLTRB(150,0, 0, 0)),
-                    Text(datas.charger,style: TextStyle(fontSize: 20,fontWeight: FontWeight.w100),),
-                  ],
-            ),
-             Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(padding: EdgeInsets.fromLTRB(10, 50, 0, 0)),
-                    Icon(Icons.alarm,size: 30,),
-                    Text("ระยะเวลาการชาร์จ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w100),),
-                    Padding(padding: EdgeInsets.fromLTRB(100,0, 0, 0)),
-                    Text(datas.charget,style: TextStyle(fontSize: 20,fontWeight: FontWeight.w100),),
-                  ],
-            ),
-             Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(padding: EdgeInsets.fromLTRB(10, 50, 0, 0)),
-                    Icon(Icons.electric_bolt,size: 30,),
-                    Text("จำนวนหน่วย",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w100),),
-                    Padding(padding: EdgeInsets.fromLTRB(135,0, 0, 0)),
-                    Text(datas.elect.toString() + " kWh" ,style: TextStyle(fontSize: 20,fontWeight: FontWeight.w100),),
-                  ],
-            ),
-            Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(padding: EdgeInsets.fromLTRB(10, 200, 0, 0)),
-                    Text("ค่าบริการรวมทั้งสิ้น",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w100,color: Color.fromARGB(255, 143, 34, 194)),),
-                    Padding(padding: EdgeInsets.fromLTRB(80,0, 0, 0)),
-                    Text(datas.price.toString()+"บาท",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w100,color: Color.fromARGB(255, 143, 34, 194)),),
-                  ],
-            )
+                ),
+              ),
+              const SizedBox(height: 40),
+              const Text(
+                "สรุปรายละเอียดการชาร์จ",
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 25),
+              ),
+              const SizedBox(height: 24),
+              DetailRow(
+                icon: Icons.calendar_month,
+                label: "วันที่ชาร์จ",
+                value: datas.date_now,
+              ),
+              DetailRow(
+                icon: Icons.ev_station_rounded,
+                label: "สถานีชาร์จ",
+                value: datas.station,
+              ),
+              DetailRow(
+                icon: Icons.power,
+                label: "ประเภทหัวชาร์จ",
+                value: datas.charger,
+              ),
+              DetailRow(
+                icon: Icons.alarm,
+                label: "ระยะเวลาการชาร์จ",
+                value: datas.charget,
+              ),
+              DetailRow(
+                icon: Icons.electric_bolt,
+                label: "จำนวนหน่วย",
+                value: "${datas.elect} kWh",
+              ),
+              const SizedBox(height: 40),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "ค่าบริการรวมทั้งสิ้น",
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w100,
+                        color: Color.fromARGB(255, 143, 34, 194)),
+                  ),
+                  Text(
+                    "${datas.price} บาท",
+                    style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w100,
+                        color: Color.fromARGB(255, 143, 34, 194)),
+                  ),
+                ],
+              ),
           ],
-        ),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
+    ));
+  }
+}
+
+class DetailRow extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final String value;
+
+  const DetailRow({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.value,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12.0),
+      child: Row(
+        children: [
+          Icon(icon, size: 30),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              label,
+              style: const TextStyle(
+                  fontSize: 20, fontWeight: FontWeight.w100),
+            ),
+          ),
+          Text(
+            value,
+            style: const TextStyle(
+                fontSize: 20, fontWeight: FontWeight.w100),
+          ),
+        ],
+      ),
     );
   }
 }
