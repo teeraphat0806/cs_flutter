@@ -8,11 +8,14 @@ class Billpage extends StatelessWidget {
   Billpage({super.key });
   @override
   Widget build(BuildContext context) {
-    
+    final Map<String,String> args = ModalRoute.of(context)!.settings.arguments as Map<String,String>;
     var space = 70.77;
     return Scaffold(
       appBar: AppBar(centerTitle: true,title: Image.asset('assets/images/pealogo.png',width: 100),),
-      body: Center(
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           
@@ -55,22 +58,22 @@ class Billpage extends StatelessWidget {
               DetailRow(
                 icon: Icons.ev_station_rounded,
                 label: "สถานีชาร์จ",
-                value: datas.station,
+                value: '${args['station']}',
               ),
               DetailRow(
                 icon: Icons.power,
                 label: "ประเภทหัวชาร์จ",
-                value: datas.charger,
+                value: '${args['charger']}',
               ),
               DetailRow(
                 icon: Icons.alarm,
                 label: "ระยะเวลาการชาร์จ",
-                value: datas.charget,
+                value: '${args['charget']}',
               ),
               DetailRow(
                 icon: Icons.electric_bolt,
                 label: "จำนวนหน่วย",
-                value: "${datas.elect} kWh",
+                value: "${args['elect']} kWh",
               ),
               const SizedBox(height: 40),
               Row(
@@ -93,9 +96,9 @@ class Billpage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 40),
-              ElevatedButton(onPressed: () {Navigator.pushNamed(context, '/');}, child: const Text("ตกลง",style: TextStyle(color: Colors.white),),style: ElevatedButton.styleFrom(backgroundColor: Colors.purple,padding: const EdgeInsets.symmetric(horizontal:  170,vertical: 16),shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))))
-          ],
-      ),
+              ElevatedButton(onPressed: () {Navigator.pushNamed(context, '/');}, child: const Text("ตกลง",style: TextStyle(color: Colors.white),),style: ElevatedButton.styleFrom(backgroundColor: Colors.purple,padding: const EdgeInsets.symmetric(horizontal:  150,vertical: 16),shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))))
+          ,SizedBox(height: 13,)],
+      ),)],)
       // This trailing comma makes auto-formatting nicer for build methods.
     ));
   }
