@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'bill.dart';
 import 'charge.dart';
 import 'login.dart';
-
+import 'register.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
@@ -30,11 +30,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 156, 5, 198)),
         useMaterial3: true,
       ),
-      initialRoute: '/',
+      initialRoute: '/register',
       routes: {
         '/': (context) => Loginpage(),
         '/bill' : (context) => Billpage(),
         '/charge' : (context) => Chargepage(),
+        '/register': (context) => Registerpage(),
       },
  
     );

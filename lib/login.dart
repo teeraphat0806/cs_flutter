@@ -53,7 +53,7 @@ class _LoginpageState extends State<Loginpage>{
                      ),
                   ),
                   SizedBox(height: 15,),
-                  ElevatedButton(onPressed: (){}, 
+                  ElevatedButton(onPressed: (){Navigator.pushNamed(context, '/charge');}, 
                   child: const Text("เข้าสู่ระบบ",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600),),
                  style: ElevatedButton.styleFrom( backgroundColor: Colors.purple,
                 padding: const EdgeInsets.symmetric(
@@ -62,7 +62,7 @@ class _LoginpageState extends State<Loginpage>{
                   borderRadius: BorderRadius.circular(10),
                 ),), ),
                 SizedBox(height: 5,),
-                TextButton(onPressed: (){}, child: Text("ลืมรหัสผ่าน",style: TextStyle(fontWeight: FontWeight.bold),)),
+                TextButton(onPressed: (){Navigator.pushNamed(context, '/register',);}, child: Text("ลืมรหัสผ่าน",style: TextStyle(fontWeight: FontWeight.bold),)),
                 SizedBox(height: 5,),
                 Text('หรือ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
                 SizedBox(height: 10,),

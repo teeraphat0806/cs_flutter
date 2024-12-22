@@ -1,11 +1,36 @@
 import 'package:cs_flutter/charge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; 
-
+import 'Bottomnavigator.dart';
 import 'data.dart';
-class Billpage extends StatelessWidget {
+class Billpage extends StatefulWidget {
+  @override
+  _BillpageState createState() => _BillpageState();
+}
+
+class _BillpageState extends State<Billpage>{
   final data datas = new data();
-  Billpage({super.key });
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/');
+        break;
+    }
+  }
   @override
   Widget build(BuildContext context) {
     final Map<String,String> args = ModalRoute.of(context)!.settings.arguments as Map<String,String>;
@@ -100,7 +125,8 @@ class Billpage extends StatelessWidget {
           ,SizedBox(height: 13,)],
       ),)],)
       // This trailing comma makes auto-formatting nicer for build methods.
-    ));
+      ),bottomNavigationBar: Bottomnavigator(currentIndex: _selectedIndex, onTap: _onItemTapped),
+    );
   }
 }
 class DetailRow extends StatelessWidget {

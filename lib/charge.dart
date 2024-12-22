@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'data.dart';
 import 'Animation/Spinner.dart';
-
+import 'Bottomnavigator.dart';
 class Chargepage extends StatefulWidget {
   @override
   _ChargepageState createState() => _ChargepageState();
@@ -27,6 +27,27 @@ class _ChargepageState extends State<Chargepage> {
   }
   double calculate(double progress){
     return progress *2;
+  }
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/');
+        break;
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -165,7 +186,7 @@ class _ChargepageState extends State<Chargepage> {
             ),SizedBox(height: 13,)
           ],
         ),
-      ),
+      ),bottomNavigationBar: Bottomnavigator(currentIndex: _selectedIndex, onTap: _onItemTapped),
     );
   }
 }
