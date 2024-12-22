@@ -23,6 +23,7 @@ class _ChargepageState extends State<Chargepage> {
     chargerController.text = datas.charger;
     chargetController.text = datas.charget;
     electController.text = "${datas.elect} kWh";
+
   }
   double calculate(double progress){
     return progress *2;
@@ -66,7 +67,9 @@ class _ChargepageState extends State<Chargepage> {
                         content: "กำลังไฟฟ้า",
                         duration: Duration(minutes: 2),
                         onProgressUpdate: (current_percentage){
-                        electric = calculate(current_percentage);
+                           setState(() {
+      electric = calculate(battery);
+    });
                         
                         },
 ),
@@ -115,24 +118,35 @@ class _ChargepageState extends State<Chargepage> {
                 prefixIcon: const Icon(Icons.alarm),
                 labelText: 'ระยะเวลาการชาร์จ',
               ),
+            ), Row(
+        children: [
+          Icon(Icons.electric_bolt,size: 30,),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+               "จำนวนหน่วย",
+              style:
+                  const TextStyle(fontSize: 20, fontWeight: FontWeight.w100),
             ),
-            TextField(
-              controller: electController,
-              decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.electric_bolt),
-                labelText: 'จำนวนหน่วย',
-              ),
-            ),
+          ),
+          Text(
+            '${electric.toStringAsFixed(2)}',
+            style:
+                const TextStyle(fontSize: 20, fontWeight: FontWeight.w100),
+          ),
+        ],
+      ),
+
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, 
-                  '/second',  
+                  '/bill',  
                   arguments: {
                   'station': stationController.text,
                   'charger': chargerController.text,
                   'charget': chargetController.text,
-                  'elect': electController.text,
+                  'elect': electric.toStringAsFixed(2),
                   },
                 );
               },

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; 
 import 'bill.dart';
 import 'charge.dart';
-
+import 'login.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,8 +32,9 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => Chargepage(),
-        '/second' : (context) => Billpage(),
+        '/': (context) => Loginpage(),
+        '/bill' : (context) => Billpage(),
+        '/charge' : (context) => Chargepage(),
       },
  
     );
