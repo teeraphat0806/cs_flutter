@@ -5,6 +5,8 @@ import 'bill.dart';
 import 'charge.dart';
 import 'login.dart';
 import 'register.dart';
+import 'payment2.dart';
+import 'qrcode.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
@@ -30,12 +32,14 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 156, 5, 198)),
         useMaterial3: true,
       ),
-      initialRoute: '/register',
+      initialRoute: '/payment',
       routes: {
         '/': (context) => Loginpage(),
         '/bill' : (context) => Billpage(),
         '/charge' : (context) => Chargepage(),
         '/register': (context) => Registerpage(),
+        '/payment' : (context) => Payment2(),
+        '/qrcode' : (context) => Qrcode(),
       },
  
     );
