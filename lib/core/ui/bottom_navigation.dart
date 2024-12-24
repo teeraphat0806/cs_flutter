@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class Bottomnavigator extends StatefulWidget {
+class BottomNavigator extends StatefulWidget {
   final int currentIndex;
   final Function(int) onTap;
 
-  const Bottomnavigator({
+  const BottomNavigator({
     Key? key,
     required this.currentIndex,
     required this.onTap,
   }) : super(key: key);
 
   @override
-  State<Bottomnavigator> createState() => _BottomnavigatorState();
+  State<BottomNavigator> createState() => _BottomnavigatorState();
 }
 
-class _BottomnavigatorState extends State<Bottomnavigator> {
+class _BottomnavigatorState extends State<BottomNavigator> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(

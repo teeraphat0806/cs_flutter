@@ -1,12 +1,11 @@
-import 'package:cs_flutter/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; 
-import 'bill.dart';
-import 'charge.dart';
-import 'login.dart';
-import 'register.dart';
-import 'payment2.dart';
-import 'qrcode.dart';
+import 'features/bill/presentation/page/bill_page.dart';
+import 'features/charge/presentation/pages/charge_page.dart';
+import 'features/login/presentation/pages/login_page.dart';
+import 'features/register/presentation/page/register_page.dart';
+import 'features/payment/presentations/pages/payment_page.dart';
+import 'features/qrcode/presentation/pages/qr_code_page.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    data datas = new data();
+    
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -34,12 +33,12 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/payment',
       routes: {
-        '/': (context) => Loginpage(),
-        '/bill' : (context) => Billpage(),
-        '/charge' : (context) => Chargepage(),
-        '/register': (context) => Registerpage(),
-        '/payment' : (context) => Payment2(),
-        '/qrcode' : (context) => Qrcode(),
+        '/': (context) => LoginPage(),
+        '/bill' : (context) => BillPage(),
+        '/charge' : (context) => ChargePage(),
+        '/register': (context) => RegisterPage(),
+        '/payment' : (context) => PaymentPage(),
+        '/qrcode' : (context) => QrcodePage(),
       },
  
     );
