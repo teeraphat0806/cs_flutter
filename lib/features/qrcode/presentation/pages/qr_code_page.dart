@@ -3,7 +3,7 @@ import '../widgets/qr_code_image.dart';
 import '../widgets/save_button.dart';
 import '../components/qr_code_header.dart';
 import '../components/qr_code_details.dart';
-import '../../../../core/ui/bottom_navigation.dart';
+
 class QrcodePage extends StatefulWidget {
   const QrcodePage({super.key});
 
@@ -63,10 +63,7 @@ class _QrcodePageState extends State<QrcodePage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigator(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-      ),
+   
     );
   }
 }

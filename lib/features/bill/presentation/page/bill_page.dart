@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/detail_row.dart';
 import '../widgets/thank_you_card.dart';
-import '../../../../core/ui/bottom_navigation.dart';
+
 import '../../data/bill_repository.dart';
 
 class BillPage extends StatefulWidget {
@@ -12,26 +12,18 @@ class BillPage extends StatefulWidget {
 }
 
 class _BillPageState extends State<BillPage> {
-  final BillRepository repository = BillRepository(); // Mock data หรือ API
-  int _selectedIndex = 0;
+  final BillRepository repository = BillRepository(); // ใช้ข้อมูลจำลองจาก BillRepository
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    // Handle Navigation
-    switch (index) {
-      case 0:
-        Navigator.pushNamed(context, '/');
-        break;
-      // Add more cases as needed
-    }
+  late Map<String, dynamic> billData; // เก็บข้อมูล Mockup Bill
+
+  @override
+  void initState() {
+    super.initState();
+    billData = repository.getMockBill(); // ดึงข้อมูล Mockup Bill
   }
 
   @override
   Widget build(BuildContext context) {
-    final Map<String, String> args = ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -50,27 +42,27 @@ class _BillPageState extends State<BillPage> {
             DetailRow(
               icon: Icons.calendar_month,
               label: "วันที่ชาร์จ",
-              value: repository.getCurrentDate(),
+              value: repository.getCurrentDate(), // ดึงวันที่จาก Repository
             ),
             DetailRow(
               icon: Icons.ev_station_rounded,
               label: "สถานีชาร์จ",
-              value: args['station'] ?? "N/A",
+              value: billData['station'], // ดึงข้อมูลสถานี
             ),
             DetailRow(
               icon: Icons.power,
               label: "ประเภทหัวชาร์จ",
-              value: args['charger'] ?? "N/A",
+              value: billData['charger'], // ดึงข้อมูลประเภทหัวชาร์จ
             ),
             DetailRow(
               icon: Icons.alarm,
               label: "ระยะเวลาการชาร์จ",
-              value: args['charget'] ?? "N/A",
+              value: billData['charget'], // ดึงข้อมูลระยะเวลาชาร์จ
             ),
             DetailRow(
               icon: Icons.electric_bolt,
               label: "จำนวนหน่วย",
-              value: "${args['elect']} kWh",
+              value: "${billData['electric']} kWh", // ดึงจำนวนหน่วยไฟฟ้า
             ),
             const SizedBox(height: 40),
             Row(
@@ -85,7 +77,7 @@ class _BillPageState extends State<BillPage> {
                   ),
                 ),
                 Text(
-                  "${repository.getPrice()} บาท",
+                  "${repository.getPrice()} บาท", // ดึงข้อมูลราคาจาก Repository
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w100,
@@ -97,7 +89,7 @@ class _BillPageState extends State<BillPage> {
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/');
+                Navigator.pushNamed(context, '/'); // กลับไปหน้าแรก
               },
               child: const Text("ตกลง", style: TextStyle(color: Colors.white)),
               style: ElevatedButton.styleFrom(
@@ -107,13 +99,10 @@ class _BillPageState extends State<BillPage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-            ),
+            ),   
+            SizedBox(height: 20,)
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigator(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
       ),
     );
   }

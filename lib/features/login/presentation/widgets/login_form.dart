@@ -32,7 +32,7 @@ class LoginForm extends StatelessWidget {
           SizedBox(height: 15),
           ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/charge');
+              Navigator.pushNamed(context, '/main',arguments: 0);
             },
             child: const Text(
               "เข้าสู่ระบบ",

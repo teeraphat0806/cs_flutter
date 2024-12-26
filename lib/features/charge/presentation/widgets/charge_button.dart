@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
-class ChargeButton extends StatelessWidget {
+class ChargeButton extends StatefulWidget {
   final double electric;
-
-  const ChargeButton({required this.electric, Key? key}) : super(key: key);
-
+  final String station;
+  final String charger;
+  final String charget;
+  const ChargeButton({required this.electric,required this.charger,required this.charget,required this.station, Key? key}): super(key:key);
+  @override
+  _ChargeButtonState createState() => _ChargeButtonState();
+}
+class _ChargeButtonState extends State<ChargeButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -12,7 +17,12 @@ class ChargeButton extends StatelessWidget {
         Navigator.pushNamed(
           context,
           '/bill',
-          arguments: {'electric': electric.toStringAsFixed(2)},
+          arguments: {
+            'elect': widget.electric.toStringAsFixed(2),
+            'charget': widget.charget,
+            'charger': widget.charger,
+            'station': widget.station,
+          },
         );
       },
       child: const Text(
