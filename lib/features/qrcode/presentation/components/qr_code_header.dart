@@ -8,7 +8,7 @@ class QrcodeHeader extends StatelessWidget {
         IconButton(
           onPressed: () {
             Navigator.pop(context);
-            Navigator.pushNamed(context, '/main',arguments: 1);
+            Navigator.pushNamed(context, '/main',arguments: {'index':1,'usePages':false});
           },
           icon: const Icon(
             Icons.arrow_circle_left_rounded,

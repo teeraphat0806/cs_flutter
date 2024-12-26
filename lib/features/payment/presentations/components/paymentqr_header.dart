@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PaymentHeader extends StatelessWidget {
+class PaymentqrHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,19 +18,15 @@ class PaymentHeader extends StatelessWidget {
             ),
             const SizedBox(width: 10),
             const Text(
-              'เติมเงินด้วยบัตรเครดิต/เดบิต',
+              'เติมเงินด้วยพร้อมเพย์',
               style: TextStyle(color: Colors.purple),
             ),
           ],
         ),
-        Row(
+        Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/visa.png', width: 50),
-            const SizedBox(width: 10),
-            Image.asset('assets/images/mastercard.png', width: 50),
-            const SizedBox(width: 10),
-            Image.asset('assets/images/unionpay.png', width: 50),
+            Image.asset('assets/images/prompay.png', width: 120),
           ],
         ),
         const SizedBox(height: 20),

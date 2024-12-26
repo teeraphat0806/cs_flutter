@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import '../widgets/payment_buttons_row.dart';
 import '../widgets/payment_note.dart';
-import '../components/paymentqr_header.dart';
-class PaymentPage extends StatefulWidget {
-  @override
-  _PaymentPageState createState() => _PaymentPageState();
-}
+import '../components/payment_header.dart';
 
-class _PaymentPageState extends State<PaymentPage> {
+class PaymentcreditPage extends StatefulWidget {
+  @override
+  _PaymentcreditState createState() => _PaymentcreditState();
+}
+class _PaymentcreditState extends State<PaymentcreditPage>{
   final List<int> priceOptions = [100, 200, 300, 1000, 2000, 3000];
   int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +20,7 @@ class _PaymentPageState extends State<PaymentPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            PaymentqrHeader(),
+            PaymentHeader(),
             PaymentButtonsRow(
               prices: priceOptions,
               selectedIndex: _selectedIndex,
@@ -31,14 +30,10 @@ class _PaymentPageState extends State<PaymentPage> {
                 });
               },
             ),
-            SizedBox(height: 50,),
+            PaymentNote(),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  '/qrcode',
-                  arguments: priceOptions[_selectedIndex],
-                );
+                Navigator.pushNamed(context, '/main',arguments: {'index':2,'usePages':false});
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromARGB(255, 37, 200, 1),

@@ -12,27 +12,6 @@ class QrcodePage extends StatefulWidget {
 }
 
 class _QrcodePageState extends State<QrcodePage> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    switch (index) {
-      case 0:
-        Navigator.pushNamed(context, '/');
-        break;
-      case 1:
-        Navigator.pushNamed(context, '/');
-        break;
-      case 2:
-        Navigator.pushNamed(context, '/');
-        break;
-      case 3:
-        Navigator.pushNamed(context, '/');
-        break;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {

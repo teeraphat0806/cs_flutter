@@ -155,7 +155,7 @@ class _ChargePageState extends State<ChargePage> {
                     Navigator.pushNamed(
                       context,
                       '/main',
-                      arguments:0
+                      arguments: {'index':0,'usePages':true}
                     );
                   },
                   child: const Text(

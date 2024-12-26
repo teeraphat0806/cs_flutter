@@ -53,7 +53,9 @@ class _PaymentCState extends State<PaymentcPage>{
                         height: 20,
                       ),
                       GestureDetector(
-                        onTap: (){},
+                        onTap: (){
+                          Navigator.pushNamed(context, '/main',arguments: {'index':0,'usePages':false});
+                        },
                         child: 
                           Container(
                             padding: EdgeInsets.all(15),
@@ -80,7 +82,7 @@ class _PaymentCState extends State<PaymentcPage>{
                       SizedBox(height: 10,),
                       GestureDetector(
                         onTap: (){
-                          Navigator.pushNamed(context, '/main',arguments: 1);
+                          Navigator.pushNamed(context, '/main',arguments: {'index':1,'usePages':false});
                         },
                         child: 
                           Container(

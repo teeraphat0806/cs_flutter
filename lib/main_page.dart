@@ -1,10 +1,11 @@
+import 'package:cs_flutter/features/creditcard/presentation/pages/CreditcardPage.dart';
 import 'package:flutter/material.dart';
 
 import 'features/bill/presentation/page/bill_page.dart';
 import 'features/charge/presentation/pages/charge_page.dart';
 import 'features/payment/presentations/pages/payment_page.dart';
 import 'features/paymentc/presentation/page/PaymentcPage.dart';
-
+import 'features/payment/presentations/pages/payment_credit.dart';
 class MainPage extends StatefulWidget {
   @override
   State<MainPage> createState() => _MainPageState();
@@ -12,7 +13,9 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   late int _currentIndex;
+  late bool _usePages; // ตัวแปรเพื่อบอกว่าจะใช้ `_pages` หรือ `_page`
 
+  // Widget list `_pages`
   final List<Widget> _pages = [
     BillPage(),
     PaymentPage(),
@@ -20,12 +23,21 @@ class _MainPageState extends State<MainPage> {
     ChargePage(),
   ];
 
+  // Widget list `_page`
+  final List<Widget> _page = [
+    PaymentcreditPage(),
+    PaymentPage(),
+    CreditcardPage()
+  ];
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // รับค่า arguments จาก Navigator และกำหนด index เริ่มต้น
-    final args = ModalRoute.of(context)?.settings.arguments as int?;
-    _currentIndex = args ?? 0; // ถ้าไม่มีค่า ส่งค่าเริ่มต้นเป็น 0
+    // รับ arguments จาก Navigator และกำหนดค่าเริ่มต้น
+    final args = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+
+    _currentIndex = args?['index'] ?? 0; // ค่าเริ่มต้นของ index
+    _usePages = args?['usePages'] ?? true; // ค่าเริ่มต้นว่าจะใช้ `_pages` (true) หรือ `_page` (false)
   }
 
   void _onItemTapped(int index) {
@@ -37,7 +49,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_currentIndex],
+      body: _usePages ? _pages[_currentIndex] : _page[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _onItemTapped,
