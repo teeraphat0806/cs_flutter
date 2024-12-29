@@ -49,7 +49,7 @@ class LoginForm extends StatelessWidget {
           SizedBox(height: 5),
           TextButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/register');
+              Navigator.pushNamed(context, '/forgetpassword');
             },
             child: Text(
               "ลืมรหัสผ่าน",
@@ -63,7 +63,9 @@ class LoginForm extends StatelessWidget {
           ),
           SizedBox(height: 10),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/register');
+            },
             child: const Text(
               "ลงทะเบียน",
               style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),

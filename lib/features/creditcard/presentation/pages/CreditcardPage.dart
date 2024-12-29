@@ -19,6 +19,7 @@ class _CreditcardState extends State<CreditcardPage> {
         body: SingleChildScrollView(
             child: Column(
           children: [
+            
             Row(
               children: [
                 IconButton(
@@ -80,7 +81,7 @@ class _CreditcardState extends State<CreditcardPage> {
                           },
                           child: const Text(
                             "ชำระเงิน",
-                            style: TextStyle(color: Colors.white,fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 18),
                           ),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.green,
@@ -90,9 +91,11 @@ class _CreditcardState extends State<CreditcardPage> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          
                         ),
-                      ),SizedBox(height: 10,)
+                      ),
+                      SizedBox(
+                        height: 10,
+                      )
                     ],
                   ),
                 )),

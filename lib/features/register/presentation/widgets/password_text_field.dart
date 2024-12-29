@@ -12,7 +12,7 @@ class PasswordTextField extends StatelessWidget {
       decoration: InputDecoration(
         filled: true,
         fillColor: const Color.fromARGB(255, 245, 229, 249),
-        labelText: isConfirmation ? 'ยืนยันรหัสผ่าน' : 'รหัสผ่าน',
+        labelText:'รหัสผ่าน',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
       ),
       obscureText: true,

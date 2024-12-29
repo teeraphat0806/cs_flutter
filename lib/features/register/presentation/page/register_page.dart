@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import '../widgets/email_text_field.dart';
-import '../widgets/password_text_field.dart';
-import '../widgets/terms_checkbox.dart';
-import '../widgets/register_button.dart';
+import '../widgets/Checkpassword.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,15 +41,39 @@ class RegisterPage extends StatelessWidget {
                   style: TextStyle(fontSize: 13),
                 ),
                 const SizedBox(height: 20),
-                const EmailTextField(),
-                const SizedBox(height: 10),
-                const PasswordTextField(),
-                const SizedBox(height: 10),
-                const PasswordTextField(isConfirmation: true),
-                const SizedBox(height: 10),
-                const TermsCheckbox(),
+                TextField(
+                  controller: _emailController,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: const Color.fromARGB(255, 245, 229, 249),
+                    labelText: 'อีเมล',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                  ),
+                  onChanged: (value) {
+                    setState(() {}); // Refresh to validate dynamically
+                  },
+                ),
                 const SizedBox(height: 20),
-                RegisterButton(),
+                TextField(
+                  controller: _passwordController,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: const Color.fromARGB(255, 245, 229, 249),
+                    labelText: 'รหัสผ่าน',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                  ),
+                  obscureText: true,
+                  onChanged: (value) {
+                    setState(() {}); // Refresh to validate dynamically
+                  },
+                ),
+                const SizedBox(height: 30),
+                CheckPassword(
+                  password: _passwordController.text,
+                  email: _emailController.text,
+                ),
               ],
             ),
           ),

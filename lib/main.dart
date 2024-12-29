@@ -1,8 +1,10 @@
+import 'package:cs_flutter/features/email_verification/presentation/pages/Email_verificationPage.dart';
 import 'package:cs_flutter/features/qrcode/presentation/pages/qr_code_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'features/login/presentation/pages/login_page.dart';
 import 'features/register/presentation/page/register_page.dart';
+import 'features/forgetpassword/presentation/pages/forgetpasseword.dart';
 import 'main_page.dart'; // นำเข้า MainPage ที่จัดการ BottomNavigationBar
 
 void main() {
@@ -34,7 +36,9 @@ class MyApp extends StatelessWidget {
         '/': (context) => LoginPage(), // หน้าแรก Login
         '/main': (context) => MainPage(), // MainPage มี BottomNavigationBar
         '/register': (context) => RegisterPage(),
-        '/qrcode': (context)=> QrcodePage()
+        '/qrcode': (context)=> QrcodePage(),
+        '/forgetpassword' : (context)=>ForgetpassewordPage(),
+        '/emailverify' : (context) => Email_verificationPage()
       },
     );
   }

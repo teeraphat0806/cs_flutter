@@ -6,6 +6,8 @@ import 'features/charge/presentation/pages/charge_page.dart';
 import 'features/payment/presentations/pages/payment_page.dart';
 import 'features/paymentc/presentation/page/PaymentcPage.dart';
 import 'features/payment/presentations/pages/payment_credit.dart';
+
+
 class MainPage extends StatefulWidget {
   @override
   State<MainPage> createState() => _MainPageState();
@@ -27,7 +29,9 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> _page = [
     PaymentcreditPage(),
     PaymentPage(),
-    CreditcardPage()
+    CreditcardPage(),
+  
+
   ];
 
   @override
