@@ -19,7 +19,7 @@ class _ListButtonState extends State<ListButton> {
           child: GestureDetector(
             onTap: () {
               // Action for the first button
-              print('เปลี่ยนแปลงข้อมูล tapped');
+              Navigator.pushNamed(context, '/main',arguments: {'index':3,'usePages':false});
             },
             child: Container(
               padding: const EdgeInsets.all(16),
@@ -94,7 +94,7 @@ class _ListButtonState extends State<ListButton> {
           child: GestureDetector(
             onTap: () {
               // Action for the second button
-              print('เกี่ยวกับ tapped');
+              Navigator.pushNamed(context, '/about');
             },
             child: Container(
               padding: EdgeInsets.all(15),

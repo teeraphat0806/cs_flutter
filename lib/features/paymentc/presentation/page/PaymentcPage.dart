@@ -1,3 +1,4 @@
+import 'package:cs_flutter/features/paymentc/presentation/widget/drop_down.dart';
 import 'package:flutter/material.dart';
 import '../widget/Creditcard.dart';
 import '../widget/button_switch.dart';
@@ -258,7 +259,7 @@ class _PaymentCState extends State<PaymentcPage> {
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
-                    ElevatedButton(onPressed: () {}, child: Text('ธันวาคม'))
+                    Dropdown_payment(),
                   ],
                 ),
               ),

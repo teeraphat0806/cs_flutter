@@ -1,4 +1,5 @@
 import 'package:cs_flutter/features/creditcard/presentation/pages/CreditcardPage.dart';
+import 'package:cs_flutter/features/personal_edit/presentation/page/Personal_edit_Page.dart';
 import 'package:cs_flutter/features/profile/presentation/pages/ProfilePage.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class _MainPageState extends State<MainPage> {
 
   // Widget list `_pages`
   final List<Widget> _pages = [
-    BillPage(),
+    ChargePage(),
     PaymentPage(),
     PaymentcPage(),
     ProfilePage(),
@@ -31,7 +32,7 @@ class _MainPageState extends State<MainPage> {
     PaymentcreditPage(),
     PaymentPage(),
     CreditcardPage(),
-    
+    PersonalEditPage()
 
   ];
 

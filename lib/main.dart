@@ -1,3 +1,4 @@
+import 'package:cs_flutter/features/About/presentation/page/AboutPage.dart';
 import 'package:cs_flutter/features/email_verification/presentation/pages/Email_verificationPage.dart';
 import 'package:cs_flutter/features/qrcode/presentation/pages/qr_code_page.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,8 @@ class MyApp extends StatelessWidget {
         '/register': (context) => RegisterPage(),
         '/qrcode': (context)=> QrcodePage(),
         '/forgetpassword' : (context)=>ForgetpassewordPage(),
-        '/emailverify' : (context) => Email_verificationPage()
+        '/emailverify' : (context) => Email_verificationPage(),
+        '/about': (context) => AboutPage(),
       },
     );
   }
